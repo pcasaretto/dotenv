@@ -22,4 +22,4 @@ SECRET=VALUE
 
 ## Instalation
 
-Grab the (latest binary)[https://github.com/pcasaretto/dotenv/releases/latest] and put it somewhere in your $PATH
+Grab the [latest binary](https://github.com/pcasaretto/dotenv/releases/latest) and put it somewhere in your $PATH
