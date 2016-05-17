@@ -1,6 +1,10 @@
 # dotenv
 
-A small command line that loads enviroment variables from a file and executes a command.
+A small command tool line that loads enviroment variables from a file and executes a command.
+
+# Why?
+
+There were others, but they all had dependencies (ruby, node).
 
 ## Usage
 
