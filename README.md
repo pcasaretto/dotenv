@@ -2,7 +2,7 @@
 
 A small command tool line that loads enviroment variables from a file and executes a command.
 
-# Why?
+# why?
 
 There were others, but they all had dependencies (ruby, node).
 
