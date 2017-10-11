@@ -4,6 +4,7 @@ import (
 	"dotenv/parser"
 	"flag"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -33,9 +34,21 @@ func main() {
 	}
 
 	cmd := exec.Command(os.Args[1], os.Args[2:]...)
-	cmd.Stdin = os.Stdin
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
+	stdinPipe, err := cmd.StdinPipe()
+	if err != nil {
+		log.Fatalf("Failed opening stdin")
+	}
+	go io.Copy(stdinPipe, os.Stdin)
+	stdoutPipe, err := cmd.StdoutPipe()
+	if err != nil {
+		log.Fatalf("Failed opening stdout")
+	}
+	go io.Copy(os.Stdout, stdoutPipe)
+	stderrPipe, err := cmd.StderrPipe()
+	if err != nil {
+		log.Fatalf("Failed opening stderr")
+	}
+	go io.Copy(os.Stderr, stderrPipe)
 	env = append(env, os.Environ()...)
 	cmd.Env = env
 	cmd.Run()
