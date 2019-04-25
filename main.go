@@ -1,13 +1,14 @@
 package main
 
 import (
-	"dotenv/parser"
 	"flag"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"os/exec"
+
+	"github.com/pcasaretto/dotenv/internal/parser"
 )
 
 func main() {
