@@ -34,7 +34,8 @@ func main() {
 		log.Fatalf("Error parsing file %s\n\t%s\n", *filename, err)
 	}
 
-	cmd := exec.Command(os.Args[1], os.Args[2:]...)
+	cmdArgs := flag.Args()
+	cmd := exec.Command(cmdArgs[0], cmdArgs[1:]...)
 	stdinPipe, err := cmd.StdinPipe()
 	if err != nil {
 		log.Fatalf("Failed opening stdin")
