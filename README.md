@@ -29,5 +29,5 @@ SECRET=VALUE
 Grab the [latest binary](https://github.com/pcasaretto/dotenv/releases/latest) and put it somewhere in your $PATH
 
 ```
-curl -Ls https://github.com/pcasaretto/dotenv/releases/download/v1.0.2/dotenv-`uname -s`-`uname -m` -o /usr/local/bin/dotenv && chmod +x /usr/local/bin/dotenv
+curl -Ls https://github.com/pcasaretto/dotenv/releases/download/v1.0.4/dotenv-`uname -s`-`uname -m` -o /usr/local/bin/dotenv && chmod +x /usr/local/bin/dotenv
 ```
