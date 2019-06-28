@@ -43,5 +43,8 @@ func main() {
 
 	cmd.Env = env
 
-	cmd.Run()
+	err = cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
