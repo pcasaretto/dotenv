@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -33,25 +32,16 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error parsing file %s\n\t%s\n", *filename, err)
 	}
+	env = append(env, os.Environ()...)
 
 	cmdArgs := flag.Args()
 	cmd := exec.Command(cmdArgs[0], cmdArgs[1:]...)
-	stdinPipe, err := cmd.StdinPipe()
-	if err != nil {
-		log.Fatalf("Failed opening stdin")
-	}
-	go io.Copy(stdinPipe, os.Stdin)
-	stdoutPipe, err := cmd.StdoutPipe()
-	if err != nil {
-		log.Fatalf("Failed opening stdout")
-	}
-	go io.Copy(os.Stdout, stdoutPipe)
-	stderrPipe, err := cmd.StderrPipe()
-	if err != nil {
-		log.Fatalf("Failed opening stderr")
-	}
-	go io.Copy(os.Stderr, stderrPipe)
-	env = append(env, os.Environ()...)
+
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
 	cmd.Env = env
+
 	cmd.Run()
 }
