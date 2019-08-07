@@ -31,7 +31,7 @@ Grab the [latest binary](https://github.com/pcasaretto/dotenv/releases/latest) a
 ```
 curl -L https://github.com/pcasaretto/dotenv/releases/download/v1.0.4/dotenv-`uname -s`-`uname -m` -o /usr/local/bin/dotenv && chmod +x /usr/local/bin/dotenv
 ```
-If you got a not permited error, use `sudo`
+If you receive a permission error, you might need `sudo`
 
 ```
 sudo curl -L https://github.com/pcasaretto/dotenv/releases/download/v1.0.4/dotenv-`uname -s`-`uname -m` -o /usr/local/bin/dotenv && sudo chmod +x /usr/local/bin/dotenv
