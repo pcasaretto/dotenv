@@ -28,11 +28,19 @@ SECRET=VALUE
 
 Grab the [latest binary](https://github.com/pcasaretto/dotenv/releases/latest) and put it somewhere in your $PATH
 
-```
+```sh
 curl -L https://github.com/pcasaretto/dotenv/releases/download/v1.0.4/dotenv-`uname -s`-`uname -m` -o /usr/local/bin/dotenv && chmod +x /usr/local/bin/dotenv
 ```
 If you receive a permission error, you might need `sudo`
 
-```
+```sh
 sudo curl -L https://github.com/pcasaretto/dotenv/releases/download/v1.0.4/dotenv-`uname -s`-`uname -m` -o /usr/local/bin/dotenv && sudo chmod +x /usr/local/bin/dotenv
 ```
+
+### Using nix flakes
+
+```sh
+nix shell github:pcasaretto/dotenv
+```
+
+Will give you a shell with dotenv ready to rock.
